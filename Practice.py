@@ -1,3 +1,5 @@
+# Ca manque de docstring tout ca!!! :P
+
 import sys
 
 
