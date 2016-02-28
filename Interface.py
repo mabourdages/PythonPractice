@@ -21,7 +21,7 @@ class MainInterface(QtGui.QMainWindow):
 
     def fillDataAndFillTable(self):
         # Find the file data
-        data = self.findAnimationData()
+        data = self.findAnimationFile()
         animations_data = data.keys()
         timeData = data.values()
         self.ui.table_animation.setRowCount(len(animations_data))
@@ -40,7 +40,7 @@ class MainInterface(QtGui.QMainWindow):
     def showTools(self):
         self.ui.show()
 
-    def findAnimationData(self):
+    def findAnimationFile(self):
         maya_file_list = {}
 
         # Finding maya file recursively in the folder
@@ -61,6 +61,7 @@ class MainInterface(QtGui.QMainWindow):
             for content_lines in ascii_file.readlines():
                 regex_content = re.compile("(-min)\s-{0,1}(\d*)\s(-max)\s-{0,1}(\d*)").search(content_lines)
 
+                # Check because some maya file had no length
                 if regex_content and len(regex_content.group(2)) > 0 and len(regex_content.group(4)) > 0:
                     frame_start, frame_end = float(regex_content.group(2)), float(regex_content.group(4))
 
