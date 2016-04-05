@@ -10,13 +10,13 @@ class Commands(object):
         self.Alive = isAlive
 
     def DisplayText(self):
-        print "{0}".format(self.Text)
+        print("{0}".format(self.Text))
 
     def GetInput(self):
         Trying = True
         while Trying:
             try:
-                answer = raw_input("Choose an answer.\n")
+                answer = input("Choose an answer.\n")
                 if int(answer) - 1 in range(len(self.NextStepList)):
                     Trying = False
                     nextRoom = self.NextStepList[int(answer)]
@@ -25,7 +25,7 @@ class Commands(object):
                     if self.Alive == nextRoom.Alive:
                         self.GetInput()
                     else:
-                        raw_input("Type anything to restart.\n")
+                        input("Type anything to restart.\n")
                         LaunchGame().Start()
             except ValueError:
                 print ("Enter a valid answer.", sys.exc_info()[0])
