@@ -83,7 +83,7 @@ class ComboBoxDelegate(QtGui.QItemDelegate):
 
 class TableModel(QtCore.QAbstractTableModel):
     """
-    Model for TableView
+    Model for TableViews
     """
     def __init__(self, table):
         super(TableModel, self).__init__()
