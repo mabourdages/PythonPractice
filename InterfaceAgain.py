@@ -1,6 +1,5 @@
 import sys, time
 from PySide import QtCore, QtGui, QtUiTools
-from TableViewUI import Ui_Form
 
 
 class LoadingBarDelegate(QtGui.QItemDelegate):
@@ -83,6 +82,9 @@ class ComboBoxDelegate(QtGui.QItemDelegate):
 
 
 class TableModel(QtCore.QAbstractTableModel):
+    """
+    Model for TableView
+    """
     def __init__(self, table):
         super(TableModel, self).__init__()
         self.__spinBoxValue = {}
@@ -190,9 +192,6 @@ class MainInterface(QtGui.QWidget):
         self.loadingBarDelegate = LoadingBarDelegate(self.ui.tableView)
         self.ui.tableView.setItemDelegateForColumn(2, self.loadingBarDelegate)
 
-    def closeEvent(self, event):
-        self.model.worker.terminate()
-        event.accept()
 
 if __name__ == "__main__":
     currentTime = time.time()
