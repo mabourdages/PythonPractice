@@ -67,7 +67,8 @@ class MainInterface(QtGui.QMainWindow):
 
                     # Printing the result
                     anim_length = frame_end - frame_start
-                    return "{0} - {1}".format(int(frame_start), int(frame_end)), int(anim_length), round(float(anim_length/30), 2)
+                    return "{0} - {1}".format(int(frame_start), int(frame_end)), int(anim_length), round(
+                        float(anim_length / 30), 2)
 
     def SetProgreeBar(self):
         pass
